@@ -11,7 +11,7 @@
  Can set brake modes for the motors
  Provide basic auton functions that move to a given X, Y (for X-drive) and move a certain distance forward(for reg drive). Make a wheel constant for measuring  distance
   *more for practice so no stress here
-
+ Update the header file accordingly as well
  *document so we can understand your thinking and give feedback
 
 */
