@@ -16,12 +16,30 @@
 
 */
 
-class chassis(){
+class chassis{ 
+  private:
+  motor FrontLeft, FrontRight, BackLeft, BackRight;
+  
+  public:
+      
+    void setChassisMotors(motor FrontLeftMotor, motor FrontRightMotor, motor BackLeftMotor, motor BackRightMotor){
+      FrontLeftMotor = FrontLeft;
+      FrontRightMotor = FrontRight;
+      BackLeftMotor = BackLeft;
+      BackRightMotor = BackRight;
+    }
+
+  };
 
 
-}
+/*
+class intake {
+   motor FrontLeft;
 
+   chassis();
 
-class intake(){
+   void setMotor1(motor A){
+     FrontLeft = A;
 
-}
+   }
+}; */
