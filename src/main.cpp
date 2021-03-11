@@ -55,6 +55,10 @@ void auto_Isolation(void) {
   // Insert autonomous user code here.
   // ..........................................................................
 }
+<<<<<<< HEAD
+=======
+//epic sauce
+>>>>>>> fcef2860b831f44c97208fdb719818f73e017f75
 
 /*---------------------------------------------------------------------------*/
 /*                                                                           */
@@ -107,7 +111,7 @@ void autonomousMain(void) {
 
 
 
-//New Comment because the first one is gone(lol)
+//New Comment because the first one is gone(lol) :)
 /*----------------------------------------------------------------------------*/
 
 int main() {
