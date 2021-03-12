@@ -23,12 +23,15 @@ class chassis{
   public:
       
     void setChassisMotors(motor FrontLeftMotor, motor FrontRightMotor, motor BackLeftMotor, motor BackRightMotor){
-      FrontLeftMotor = FrontLeft;
-      FrontRightMotor = FrontRight;
-      BackLeftMotor = BackLeft;
-      BackRightMotor = BackRight;
+      FrontLeft = FrontLeftMotor;
+      FrontRight = FrontRightMotor;
+      BackLeft = BackLeftMotor;
+      BackRight = BackRightMotor;
     }
+    void set_xDrive(int yPower, int xPower, int rPower){
+      FrontLeft = yPower - xPower + rPower;
 
+    }
   };
 
 
