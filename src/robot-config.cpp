@@ -15,4 +15,5 @@ brain Brain;
 
 void vexcodeInit(void) {
   // Nothing to initialize
+  chassis xChassis;
 }

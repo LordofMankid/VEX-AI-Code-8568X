@@ -16,23 +16,19 @@
 
 */
 
-class chassis{ 
-  private:
-  motor FrontLeft, FrontRight, BackLeft, BackRight;
-  
-  public:
-      
-    void setChassisMotors(motor FrontLeftMotor, motor FrontRightMotor, motor BackLeftMotor, motor BackRightMotor){
+void chassis::setChassisMotors(motor FrontLeftMotor, motor FrontRightMotor, motor BackLeftMotor, motor BackRightMotor) 
+    {
       FrontLeft = FrontLeftMotor;
       FrontRight = FrontRightMotor;
       BackLeft = BackLeftMotor;
       BackRight = BackRightMotor;
     }
-    void set_xDrive(int yPower, int xPower, int rPower){
+void chassis::set_xDrive(int yPower, int xPower, int rPower) 
+    {
       FrontLeft = yPower - xPower + rPower;
 
     }
-  };
+  
 
 
 /*
