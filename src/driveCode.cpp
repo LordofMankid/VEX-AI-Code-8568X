@@ -15,30 +15,4 @@
  *document so we can understand your thinking and give feedback
 
 */
-
-void chassis::setChassisMotors(motor FrontLeftMotor, motor FrontRightMotor, motor BackLeftMotor, motor BackRightMotor) 
-    {
-      FrontLeft = FrontLeftMotor;
-      FrontRight = FrontRightMotor;
-      BackLeft = BackLeftMotor;
-      BackRight = BackRightMotor;
-    }
-void chassis::set_xDrive(int yPower, int xPower, int rPower) 
-    {
-      FrontLeft = yPower - xPower + rPower;
-
-    }
-  
-
-
-/*
-class intake {
-   motor FrontLeft;
-
-   chassis();
-
-   void setMotor1(motor A){
-     FrontLeft = A;
-
-   }
-}; */
+// botLeftMotor = 100;

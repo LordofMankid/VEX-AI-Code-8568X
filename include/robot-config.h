@@ -8,3 +8,8 @@ extern brain Brain;
  * This should be called at the start of your int main function.
  */
 void vexcodeInit(void);
+
+const motor topLeftMotor(1);
+const motor botLeftMotor(2);
+const motor topRightMotor(3);
+const motor botRightMotor(4);

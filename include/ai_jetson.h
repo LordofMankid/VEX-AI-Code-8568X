@@ -128,8 +128,8 @@ namespace ai {
         int32_t       index;
         vex::timer    timer;
         uint32_t      packets;
-        uint32_t      errors;
         uint32_t      timeouts;
+        uint32_t      errors;
         uint16_t      payload_length; 
         uint16_t      payload_type; 
         uint32_t      payload_crc32;
