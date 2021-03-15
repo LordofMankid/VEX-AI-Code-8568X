@@ -112,6 +112,18 @@ void autonomousMain(void) {
 
 /*----------------------------------------------------------------------------*/
 
+int drive_yPower;
+int drive_xPower;
+int drive_rPower;
+
+void setDrive(int yPower, int xPower, int rPower){
+topLeftMotor.setVelocity(yPower + xPower + rPower, velocityUnits::pct);
+topRightMotor.setVelocity(yPower - xPower - rPower, velocityUnits::pct);
+botLeftMotor.setVelocity(yPower - xPower + rPower, velocityUnits::pct);
+botRightMotor.setVelocity(yPower + xPower - rPower, velocityUnits::pct);
+}
+
+
 
 int main() {
     // Initializing Robot Configuration. DO NOT REMOVE!
@@ -136,7 +148,8 @@ int main() {
     // when using VEXcode.
     //
     //FILE *fp = fopen("/dev/serial2","wb");
-
+    intakeLeft.setVelocity(100, velocityUnits::pct);
+    intakeRight.setVelocity(100, velocityUnits::pct);
     while(1) {
         // get last map data
         jetson_comms.get_data( &local_map );
@@ -149,9 +162,27 @@ int main() {
         // request new data    
         // NOTE: This request should only happen in a single task.    
         jetson_comms.request_map();
-        if(Controller.ButtonB.pressing() == true){
+
+        drive_yPower = Controller.Axis2.value();
+        drive_xPower = Controller.Axis4.value();
+        drive_rPower = Controller.Axis3.value();
+
+        setDrive(drive_yPower, drive_xPower, drive_rPower);
+
+
+
+        if(Controller.ButtonB.pressing() == true)
+        {
           intakeLeft.spin(directionType::fwd);
           intakeRight.spin(directionType::fwd);
+        } else if(Controller.ButtonA.pressing() == true)
+        {
+          intakeLeft.spin(directionType::rev);
+          intakeRight.spin(directionType::rev);
+        } else
+        {
+          intakeLeft.stop();
+          intakeRight.stop();
         }
         // Allow other tasks to run
         this_thread::sleep_for(loop_time);
