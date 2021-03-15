@@ -2,6 +2,13 @@ using namespace vex;
 
 extern brain Brain;
 
+extern motor topLeftMotor;
+extern motor botLeftMotor;
+extern motor topRightMotor;
+extern motor botRightMotor;
+extern motor intakeLeft;
+extern motor intakeRight;
+extern controller Controller;
 /**
  * Used to initialize code/tasks/devices added using tools in VEXcode Pro.
  *
@@ -9,7 +16,3 @@ extern brain Brain;
  */
 void vexcodeInit(void);
 
-const motor topLeftMotor(1);
-const motor botLeftMotor(2);
-const motor topRightMotor(3);
-const motor botRightMotor(4);

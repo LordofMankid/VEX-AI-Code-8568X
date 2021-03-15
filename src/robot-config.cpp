@@ -12,6 +12,15 @@ brain Brain;
  */
 
 
+motor topLeftMotor = motor(PORT1, ratio18_1, false);
+motor botLeftMotor = motor(PORT2, ratio18_1, false);
+motor topRightMotor = motor(PORT3, ratio18_1, false);
+motor botRightMotor = motor(PORT4, ratio18_1, false);
+motor intakeLeft = motor(PORT5, ratio18_1, false);
+motor intakeRight = motor(PORT6, ratio18_1, true);
+
+controller Controller;
+
 void vexcodeInit(void) {
   // Nothing to initialize
   

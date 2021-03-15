@@ -109,8 +109,9 @@ void autonomousMain(void) {
 
 
 
-//New Comment because the first one is gone(lol) :)
+
 /*----------------------------------------------------------------------------*/
+
 
 int main() {
     // Initializing Robot Configuration. DO NOT REMOVE!
@@ -124,7 +125,7 @@ int main() {
 
     // start the status update display
     thread t1(dashboardTask);
-
+    
     // Set up callbacks for autonomous and driver control periods.
     Competition.autonomous(autonomousMain);
 
@@ -148,7 +149,10 @@ int main() {
         // request new data    
         // NOTE: This request should only happen in a single task.    
         jetson_comms.request_map();
-
+        if(Controller.ButtonB.pressing() == true){
+          intakeLeft.spin(directionType::fwd);
+          intakeRight.spin(directionType::fwd);
+        }
         // Allow other tasks to run
         this_thread::sleep_for(loop_time);
     }
