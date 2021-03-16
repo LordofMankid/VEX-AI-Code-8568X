@@ -1,8 +1,11 @@
-#pragma once
 
 using namespace vex;
-/*
 
+extern int yPowerDrive;
+extern int xPowerDrive;
+extern int rPowerDrive;
+
+/*
 class chassis
 {
   private:
@@ -19,5 +22,6 @@ class chassis
 };
 */
 
+void setDrive(int yPower, int xPower, int rPower);
 
-
+void setDriveMotors();

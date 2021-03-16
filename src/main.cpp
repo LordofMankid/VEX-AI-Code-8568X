@@ -112,31 +112,6 @@ void autonomousMain(void) {
 
 /*----------------------------------------------------------------------------*/
 
-int drive_yPower;
-int drive_xPower;
-int drive_rPower;
-
-void setDrive(int yPower, int xPower, int rPower){
-  topLeftMotor.setVelocity(yPower + xPower + rPower, velocityUnits::pct);
-  topRightMotor.setVelocity(yPower - xPower - rPower, velocityUnits::pct);
-  botLeftMotor.setVelocity(yPower - xPower + rPower, velocityUnits::pct);
-  botRightMotor.setVelocity(yPower + xPower - rPower, velocityUnits::pct);
-  topLeftMotor.spin(directionType::fwd);
-  topRightMotor.spin(directionType::fwd);
-  botLeftMotor.spin(directionType::fwd);
-  botRightMotor.spin(directionType::fwd);
-  if(yPower == 0 && xPower == 0 && rPower == 0)
-  {
-    topLeftMotor.stop();
-    topRightMotor.stop();
-    botLeftMotor.stop();
-    botRightMotor.stop();
-    
-  }
-
-
-}
-
 
 
 
@@ -181,11 +156,7 @@ int main() {
         // NOTE: This request should only happen in a single task.    
         jetson_comms.request_map();
 
-        drive_yPower = Controller.Axis2.value();
-        drive_xPower = Controller.Axis4.value();
-        drive_rPower = Controller.Axis3.value();
-
-        setDrive(drive_yPower, drive_xPower, drive_rPower);
+        setDriveMotors();
 
 
 

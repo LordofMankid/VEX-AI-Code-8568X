@@ -15,9 +15,9 @@
 #include "v5.h"
 #include "v5_vcs.h"
 
+#include "robot-config.h"
 #include "ai_jetson.h"
 #include "ai_robot_link.h"
-#include "robot-config.h"
 #include "driveCode.h"
 
 #define waitUntil(condition)                                                   \

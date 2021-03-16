@@ -1,6 +1,6 @@
 #include "vex.h"
 
-
+using namespace vex;
 /*
 
  Create a chassis class that: 
@@ -16,3 +16,58 @@
 
 */
 
+int yPowerDrive;
+int xPowerDrive;
+int rPowerDrive;
+
+void setDrive(int yPower, int xPower, int rPower){
+  
+  topLeftMotor.setVelocity(yPower + xPower + rPower, velocityUnits::pct);
+  topRightMotor.setVelocity(yPower - xPower - rPower, velocityUnits::pct);
+  botLeftMotor.setVelocity(yPower - xPower + rPower, velocityUnits::pct);
+  botRightMotor.setVelocity(yPower + xPower - rPower, velocityUnits::pct);
+  
+  topLeftMotor.spin(directionType::fwd);
+  topRightMotor.spin(directionType::fwd);
+  botLeftMotor.spin(directionType::fwd);
+  botRightMotor.spin(directionType::fwd);
+
+  if(yPower == 0 && xPower == 0 && rPower == 0)
+  {
+    topLeftMotor.stop();
+    topRightMotor.stop();
+    botLeftMotor.stop();
+    botRightMotor.stop();
+    
+  }
+
+
+}
+
+
+
+void setDriveMotors()
+{
+  if(abs(Controller.Axis2.value() < 5))
+  {
+   yPowerDrive = 0;
+  } else {
+    yPowerDrive = Controller.Axis2.value();
+  }
+  
+  if(abs(Controller.Axis4.value() < 5))
+  {
+    xPowerDrive = 0;
+  } else {
+     xPowerDrive = Controller.Axis4.value();
+  }
+  
+  if(abs(Controller.Axis3.value() < 5))
+  {
+    xPowerDrive = 0;
+  } else {
+     xPowerDrive = Controller.Axis3.value();
+  }
+ 
+  setDrive(yPowerDrive, xPowerDrive, rPowerDrive);
+}
