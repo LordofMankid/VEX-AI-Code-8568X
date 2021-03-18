@@ -1,6 +1,6 @@
 #include "vex.h"
 
-
+using namespace vex;
 /*
 
  Create a chassis class that: 
@@ -16,29 +16,64 @@
 
 */
 
-void chassis::setChassisMotors(motor FrontLeftMotor, motor FrontRightMotor, motor BackLeftMotor, motor BackRightMotor) 
-    {
-      FrontLeft = FrontLeftMotor;
-      FrontRight = FrontRightMotor;
-      BackLeft = BackLeftMotor;
-      BackRight = BackRightMotor;
-    }
-void chassis::set_xDrive(int yPower, int xPower, int rPower) 
-    {
-      FrontLeft = yPower - xPower + rPower;
+int yPowerDrive;
+int xPowerDrive;
+int rPowerDrive;
 
-    }
+void setDrive(int yPower, int xPower, int rPower){
   
+  topLeftMotor.setVelocity(yPower + xPower + rPower, velocityUnits::pct);
+  topRightMotor.setVelocity(yPower - xPower - rPower, velocityUnits::pct);
+  botLeftMotor.setVelocity(yPower - xPower + rPower, velocityUnits::pct);
+  botRightMotor.setVelocity(yPower + xPower - rPower, velocityUnits::pct);
+  
+  topLeftMotor.spin(directionType::fwd);
+  topRightMotor.spin(directionType::fwd);
+  botLeftMotor.spin(directionType::fwd);
+  botRightMotor.spin(directionType::fwd);
+
+  if(yPower == 0 && xPower == 0 && rPower == 0)
+  {
+    topLeftMotor.stop();
+    topRightMotor.stop();
+    botLeftMotor.stop();
+    botRightMotor.stop();
+    
+  }
 
 
-/*
-class intake {
-   motor FrontLeft;
+}
 
-   chassis();
 
-   void setMotor1(motor A){
-     FrontLeft = A;
 
-   }
-}; */
+void setDriveMotors()
+{
+  if(abs(Controller.Axis2.value() < 5))
+  {
+   yPowerDrive = 0;
+  } else {
+    yPowerDrive = Controller.Axis2.value();
+  }
+  
+  if(abs(Controller.Axis4.value() < 5))
+  {
+    xPowerDrive = 0;
+  } else {
+     xPowerDrive = Controller.Axis4.value();
+  }
+  
+  if(abs(Controller.Axis3.value() < 5))
+  {
+    xPowerDrive = 0;
+  } else {
+     xPowerDrive = Controller.Axis3.value();
+  }
+ 
+  setDrive(yPowerDrive, xPowerDrive, rPowerDrive);
+}
+
+
+frontRightMotor.setVelocity(yPower - rPower, velocityUnits::pct);
+backRightMotor.setVelocity(yPower - rPower, velocityUnits::pct);
+frontLeftMotor.setVelocity(yPower + rPower, velocityUnits::pct);
+backLeftMotor.setVelocity(yPower + rPower, velocityUnits::pct);
