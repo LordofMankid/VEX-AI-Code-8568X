@@ -133,7 +133,7 @@ int main() {
     
     // Set up callbacks for autonomous and driver control periods.
     Competition.autonomous(autonomousMain);
-
+  
     // print through the controller to the terminal (vexos 1.0.12 is needed)
     // As USB is tied up with Jetson communications we cannot use
     // printf for debug.  If the controller is connected
@@ -141,8 +141,10 @@ int main() {
     // when using VEXcode.
     //
     //FILE *fp = fopen("/dev/serial2","wb");
-    intakeLeft.setVelocity(100, velocityUnits::pct);
-    intakeRight.setVelocity(100, velocityUnits::pct);
+    intakeLeft.setVelocity(100, percent);
+    intakeRight.setVelocity(100, percent);
+    
+
     while(1) {
         // get last map data
         jetson_comms.get_data( &local_map );
@@ -155,10 +157,9 @@ int main() {
         // request new data    
         // NOTE: This request should only happen in a single task.    
         jetson_comms.request_map();
-
-        setDriveMotors();
-
-
+        
+        xChassis.setDriveMotors();
+        
 
         if(Controller.ButtonB.pressing() == true)
         {

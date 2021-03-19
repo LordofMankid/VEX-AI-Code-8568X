@@ -1,3 +1,5 @@
+#include "chassis.h"
+
 using namespace vex;
 
 extern brain Brain;
@@ -9,7 +11,7 @@ extern motor botRightMotor;
 extern motor intakeLeft;
 extern motor intakeRight;
 extern controller Controller;
-
+extern chassis xChassis;
 /**
  * Used to initialize code/tasks/devices added using tools in VEXcode Pro.
  *
