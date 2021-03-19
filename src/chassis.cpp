@@ -66,11 +66,11 @@ void chassis::setTankDrive(int yPower, int rPower){
 //void chassis::move(double target);
 void chassis::setDriveMotors()
 {
-  if(abs(Controller.Axis2.value()) < 5)
+  if(abs(Controller.Axis3.value()) < 5)
   {
    yPowerDrive = 0;
   } else {
-    yPowerDrive = Controller.Axis2.value();
+    yPowerDrive = Controller.Axis3.value();
   }
   
   if(abs(Controller.Axis4.value()) < 5)
@@ -80,11 +80,11 @@ void chassis::setDriveMotors()
      xPowerDrive = Controller.Axis4.value();
   }
   
-  if(abs(Controller.Axis3.value()) < 5)
+  if(abs(Controller.Axis1.value()) < 5)
   {
-    xPowerDrive = 0;
+    rPowerDrive = 0;
   } else {
-     xPowerDrive = Controller.Axis3.value();
+     rPowerDrive = Controller.Axis1.value();
   }
  
   setDrive(yPowerDrive, xPowerDrive, rPowerDrive);
