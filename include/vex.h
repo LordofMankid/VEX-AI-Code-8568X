@@ -20,6 +20,7 @@
 #include "ai_robot_link.h"
 #include "chassis.h"
 #include "odometry.h"
+#include "intake.h"
 #define waitUntil(condition)                                                   \
   do {                                                                         \
     wait(5, msec);                                                             \

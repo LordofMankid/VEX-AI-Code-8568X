@@ -160,20 +160,8 @@ int main() {
         
         xChassis.setDriveMotors();
         
+        setDriverSpeed();
 
-        if(Controller.ButtonB.pressing() == true)
-        {
-          intakeLeft.spin(directionType::fwd);
-          intakeRight.spin(directionType::fwd);
-        } else if(Controller.ButtonA.pressing() == true)
-        {
-          intakeLeft.spin(directionType::rev);
-          intakeRight.spin(directionType::rev);
-        } else
-        {
-          intakeLeft.stop();
-          intakeRight.stop();
-        }
         // Allow other tasks to run
         this_thread::sleep_for(loop_time);
     }
