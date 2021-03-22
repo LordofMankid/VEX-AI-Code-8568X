@@ -35,10 +35,11 @@ void chassis::setHoloDrive(int yPower, int xPower, int rPower){
   BackLeft.setVelocity(yPower - xPower + rPower, velocityUnits::pct);
   BackRight.setVelocity(yPower + xPower - rPower, velocityUnits::pct);
 
-  topLeftMotor.spin(forward);
-  topRightMotor.spin(forward);
-  botLeftMotor.spin(forward);
-  botRightMotor.spin(forward);
+  FrontLeft.spin(forward);
+  FrontRight.spin(forward);
+  BackLeft.spin(forward);
+  BackRight.spin(forward);
+
   
 }
 void chassis::setTankDrive(int yPower, int rPower){
@@ -47,19 +48,11 @@ void chassis::setTankDrive(int yPower, int rPower){
   BackLeft.setVelocity(yPower + rPower, percent);
   BackRight.setVelocity(yPower - rPower, percent);
 
-  topLeftMotor.spin(forward);
-  topRightMotor.spin(forward);
-  botLeftMotor.spin(forward);
-  botRightMotor.spin(forward);
+  FrontLeft.spin(forward);
+  FrontRight.spin(forward);
+  BackLeft.spin(forward);
+  BackRight.spin(forward);
   
-  if(yPower == 0  && rPower == 0)
-  {
-    topLeftMotor.stop();
-    topRightMotor.stop();
-    botLeftMotor.stop();
-    botRightMotor.stop();
-    
-  }
 }
 
 
@@ -87,14 +80,14 @@ void chassis::setDriveMotors()
      rPowerDrive = Controller.Axis1.value();
   }
  
-  setDrive(yPowerDrive, xPowerDrive, rPowerDrive);
+  setHoloDrive(yPowerDrive, xPowerDrive, rPowerDrive);
 }
 
 //--------------------------------------------
 
 
 
-
+/*
 
 void setDrive(int yPower, int xPower, int rPower){
   
@@ -120,4 +113,4 @@ void setDrive(int yPower, int xPower, int rPower){
 
 }
 
-
+*/

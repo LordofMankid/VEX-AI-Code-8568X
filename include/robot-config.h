@@ -4,10 +4,6 @@ using namespace vex;
 
 extern brain Brain;
 
-extern motor topLeftMotor;
-extern motor botLeftMotor;
-extern motor topRightMotor;
-extern motor botRightMotor;
 extern motor intakeLeft;
 extern motor intakeRight;
 extern controller Controller;

@@ -5,7 +5,14 @@ extern int yPowerDrive;
 extern int xPowerDrive;
 extern int rPowerDrive;
 
+/*
+Declares a four-motor chassis class.
 
+*Parameters: FrontLeftMotor, FrontRightMotor, BackLeftMotor, BackRightMotor, type vex::motor
+
+
+
+*/
 class chassis
 {
   private:
