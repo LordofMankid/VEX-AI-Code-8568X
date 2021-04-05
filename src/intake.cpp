@@ -1,7 +1,4 @@
 #include "vex.h"
-#include <vex_timer.h>
-
-timer clock1;
 
 void setIntakeSpeed(int pwr) 
 {
@@ -69,14 +66,14 @@ void colorSort(bool redSide)
 
 void score(bool redSide)
 {
-  colorSort(redSide);
+ colorSort(redSide);
   setTransportSpeed(100);
   if (ColorSorter.isNearObject() == true)
   {
-    clock1.clear();
-    if (clock1.time() >= 500.0)
-    {
-      setTransportSpeed(0);
-    }
+    Brain.resetTimer(); 
+  }
+  if (Brain.timer(sec) >= 0.5)
+  {
+    transport.stop();
   }
 }

@@ -13,7 +13,6 @@ brain Brain;
 
 
 encoder trackingLeft = encoder(Brain.ThreeWirePort.A);
-
 motor intakeLeft = motor(PORT5, ratio18_1, false);
 motor intakeRight = motor(PORT6, ratio18_1, true);
 motor sorter = motor(PORT8, ratio18_1, true);

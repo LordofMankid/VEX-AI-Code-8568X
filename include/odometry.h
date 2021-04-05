@@ -97,8 +97,5 @@ class odometry{
   
   double getAngleDeg();
 
-
-
-
 };
 

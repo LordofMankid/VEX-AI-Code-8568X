@@ -11,5 +11,3 @@ void setTransportSpeed(int pwr);
 void colorSort(bool redSide);
 
 void score(bool redSide);
-
-extern timer clock1;

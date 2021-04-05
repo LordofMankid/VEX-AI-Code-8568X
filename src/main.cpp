@@ -21,7 +21,14 @@ competition Competition;
 // data from the Jetson nano
 //
 ai::jetson  jetson_comms;
-
+odometry Odometry;
+int odometry() {
+  while(1){
+    Odometry.updatePosition();
+    wait(10, msec);
+  }
+  return 0;
+}
 /*----------------------------------------------------------------------------*/
 // Create a robot_link on PORT1 using the unique name robot_32456_1
 // The unique name should probably incorporate the team number
@@ -87,6 +94,8 @@ void auto_Interaction(void) {
 
 bool firstAutoFlag = true;
 
+bool redSide = true;
+
 void autonomousMain(void) {
   // ..........................................................................
   // The first time we enter this function we will launch our Isolation routine
@@ -130,6 +139,7 @@ int main() {
 
     // start the status update display
     thread t1(dashboardTask);
+    task findPosition = task(odometry);
     
     // Set up callbacks for autonomous and driver control periods.
     Competition.autonomous(autonomousMain);
@@ -162,7 +172,9 @@ int main() {
         
         setDriverSpeed();
 
-        colorSort(true);
+        colorSort(redSide);
+
+        score(redSide);
 
         // Allow other tasks to run
         this_thread::sleep_for(loop_time);
