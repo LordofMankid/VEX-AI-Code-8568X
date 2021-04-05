@@ -88,10 +88,17 @@
 
   double modulo(double a, double b);
   
-  double getYposition();
-  
-  double getXposition();
+  double odometry::getYposition(){
 
-  double getAngleRad();
+    return currPosition.yPosition;
+  }
+  
+  double odometry::getXposition(){
+    return currPosition.xPosition;
+  }
+
+  double getAngleRad(){
+    return 2.0;
+  }
   
   double getAngleDeg();

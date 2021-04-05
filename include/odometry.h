@@ -1,8 +1,10 @@
-#include "robot-config.h"
+#pragma once
+#include "vex.h"
 #include <vex_triport.h>
 
 using namespace vex;
 #define TICKS_TRACKING_REV 360.0
+extern brain Brain;
 
 extern const double TR_TICK_INCH;
 extern const double TR_INCH_TICK;

@@ -1,4 +1,5 @@
 #pragma once
+#include "calculate.h"
 using namespace vex;
 
 extern int yPowerDrive;
@@ -38,12 +39,19 @@ class chassis
   void setTankDrive(int yPower, int rPower);
   void setDriveMotors();
   void move(double target);
+  void setPID(double kP, double kI, double kD);
+  double get_kP();
+  double get_kI();
+  double get_kD();
+ // kPID get_kPID();
 };
 
 
 void setDrive(int yPower, int xPower, int rPower);
 
 void setDriveMotors();
+
+extern chassis xChassis;
 
 class newChassis
 {

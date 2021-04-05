@@ -11,13 +11,12 @@ brain Brain;
  * This should be called at the start of your int main function.
  */
 
-chassis xChassis = chassis(motor(PORT2), motor(PORT3), motor(PORT4), motor(PORT7));
 
 encoder trackingLeft = encoder(Brain.ThreeWirePort.A);
 
 motor intakeLeft = motor(PORT5, ratio18_1, false);
 motor intakeRight = motor(PORT6, ratio18_1, true);
-motor sorter = motor(PORT8, ratio18_1, false);
+motor sorter = motor(PORT8, ratio18_1, true);
 motor transport = motor(PORT9, ratio18_1, false);
 
 controller Controller;
