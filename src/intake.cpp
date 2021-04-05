@@ -1,4 +1,7 @@
 #include "vex.h"
+#include <vex_timer.h>
+
+timer clock1;
 
 void setIntakeSpeed(int pwr) 
 {
@@ -43,5 +46,37 @@ void setDriverSpeed()
     setSorterSpeed(-100);
   } else {
     sorter.stop();
+  }
+}
+
+void colorSort(bool redSide)
+{
+  int reverse = 1;
+  if (redSide == false)
+  {
+    reverse = - reverse;
+  }
+  if (ColorSorter.color() == red)
+  {
+    setSorterSpeed(100 * reverse);
+  } else if (ColorSorter.color() == blue)
+  {
+    setSorterSpeed(-100 * reverse);
+  } else {
+    sorter.stop();
+  }
+}
+
+void score(bool redSide)
+{
+  colorSort(redSide);
+  setTransportSpeed(100);
+  if (ColorSorter.isNearObject() == true)
+  {
+    clock1.clear();
+    if (clock1.time() >= 500.0)
+    {
+      setTransportSpeed(0);
+    }
   }
 }
