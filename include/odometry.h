@@ -4,6 +4,7 @@
 
 using namespace vex;
 #define TICKS_TRACKING_REV 360.0
+#define PI 3.1415926535
 extern brain Brain;
 
 extern const double TR_TICK_INCH;
@@ -32,9 +33,9 @@ class odometry{
   encoder trackingRight = encoder(Brain.ThreeWirePort.C);
   encoder trackingX = encoder(Brain.ThreeWirePort.E);
   ////
-  static double RIGHTWHEELDISTANCE;
-  static double LEFTWHEELDISTANCE;
-  static double XWHEELDISTANCE;
+  double RIGHTWHEELDISTANCE = 1;
+  double LEFTWHEELDISTANCE = 1;
+  double XWHEELDISTANCE = 1;
   ////current positions of tracking wheels
   double positionL; //left wheel
   double positionR; //right wheel

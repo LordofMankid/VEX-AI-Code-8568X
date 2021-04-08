@@ -1,6 +1,8 @@
 #include "vex.h"
 
-  
+const double TR_TICK_INCH = TICKS_TRACKING_REV/(2.5*PI);
+const double TR_INCH_TICK = 2.5*PI/TICKS_TRACKING_REV;
+
   void odometry::resetPosition(){
 
   }
