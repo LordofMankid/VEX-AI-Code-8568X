@@ -15,10 +15,52 @@
 #include "v5.h"
 #include "v5_vcs.h"
 
+<<<<<<< Updated upstream
 #include "ai_jetson.h"
 #include "ai_robot_link.h"
 #include "robot-config.h"
 #include "driveCode.h"
+=======
+#include "robot-config.h"
+#include "ai_jetson.h"
+#include "ai_robot_link.h"
+#include "chassis.h"
+#include "odometry.h"
+#include "intake.h"
+#include "calculate.h"
+
+#include "PID.h"
+
+#ifndef STRUCTURES
+typedef struct kPID{
+
+  double kP; 
+
+  double kI;
+
+  double kD;
+
+} kPID;
+
+typedef struct position{
+  double xPosition;
+  double yPosition;
+  double angle;
+} position;
+
+typedef struct polarCoord{
+  double radius;
+  double angle;
+} polarCoord;
+
+typedef struct rectCoord{
+  double x;
+  double y;
+} rectCoord;
+#define STRUCTURES
+#endif 
+
+>>>>>>> Stashed changes
 
 #define waitUntil(condition)                                                   \
   do {                                                                         \
