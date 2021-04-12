@@ -121,3 +121,25 @@ double calculate::calcDistance(polarCoord polar)
  rect = polToRect(polar);
  return calcDistance(rect);
 }
+
+void calculate::setPID(double kP, double kI, double kD)
+{
+  pid_constants.kP = kP;
+  pid_constants.kI = kI;
+  pid_constants.kD = kD;
+}
+
+double calculate::get_kP()
+{
+  return pid_constants.kP;
+}
+
+double calculate::get_kI()
+{
+  return pid_constants.kI;
+}
+
+double calculate::get_kD()
+{
+  return pid_constants.kD;
+}

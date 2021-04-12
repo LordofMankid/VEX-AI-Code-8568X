@@ -10,9 +10,11 @@ class calculate{
  double derivative;
  int integralMax = 20;
  double prevError;
- 
+ kPID pid_constants;
  public:
+
  double PID(double targetPosition, double encoderValue, kPID kPID);
+
  double findDistance(rectCoord initPosition, rectCoord finalPosition);
   //double PID(rectCoord targetPosition, position currPosition);
 
@@ -30,4 +32,13 @@ class calculate{
   double calcDistance(double x, double y);
  
   double calcDistance(polarCoord polar);
+
+  kPID setPID(double kP, double kI, double kD);
+
+  double get_kP();
+
+  double get_kI();
+
+  double get_kD();
+  
 };

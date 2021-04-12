@@ -1,5 +1,5 @@
 #pragma once
-#include "calculate.h"
+#include "vex.h"
 using namespace vex;
 
 extern int yPowerDrive;
@@ -14,7 +14,7 @@ Declares a four-motor chassis class.
 
 
 */
-class chassis
+class chassis 
 {
   private:
   calculate Calc;
@@ -27,10 +27,8 @@ class chassis
   int xPowerDrive;
   int rPowerDrive;
 
-  static double kP;
-  static double kI;
-  static double kD;
-  
+  kPID kChassis;
+
   public:
   chassis() {};
   chassis(motor FrontLeftMotor, motor FrontRightMotor, motor BackLeftMotor, motor BackRightMotor);
@@ -40,10 +38,7 @@ class chassis
   void setTankDrive(int yPower, int rPower);
   void setDriveMotors();
   void move(double target);
-  void setPID(double kP, double kI, double kD);
-  double get_kP();
-  double get_kI();
-  double get_kD();
+  
  // kPID get_kPID();
 };
 

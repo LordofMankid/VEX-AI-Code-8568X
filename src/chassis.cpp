@@ -55,27 +55,7 @@ void chassis::setTankDrive(int yPower, int rPower)
   BackRight.spin(forward);
   
 }
-void chassis::setPID(double proportional, double integral, double derivative)
-{
-  kP = proportional;
-  kI = integral;
-  kD = derivative;
-}
 
-double chassis::get_kP()
-{
-  return kP;
-}
-
-double chassis::get_kI()
-{
-  return kI;
-}
-
-double chassis::get_kD()
-{
-  return kD;
-}
 /*
 kPID chassis::get_kPID()
 {
