@@ -58,10 +58,10 @@ polarCoord rectToPol(double x, double y)
  
 polarCoord rectToPol(rectCoord rect)
 {
- rectToPol(rect.x)
+ return rectToPol(rect.x, rect.y);
 }
  
-rectCoord polToRec(double radius, double theta)
+rectCoord polToRect(double radius, double theta)
 {
  rectCoord rect;
  double x;
@@ -71,6 +71,11 @@ rectCoord polToRec(double radius, double theta)
  y = radius * sin(theta);
  rect.y = y;
  return rect;
+}
+
+rectCoord polToRect(polarCoord polar)
+{
+  return polToRect(polar.radius, polar.angle);
 }
  
 double calcDistance(double x, double y)
@@ -84,8 +89,10 @@ double calcDistance(rectCoord rect)
 {
  return calcDistance(rect.x, rect.y);
 }
- 
+
 double calcDistance(polarCoord polar)
 {
- 
+ rectCoord rect;
+ rect = polToRect(polar);
+ return calcDistance(rect);
 }

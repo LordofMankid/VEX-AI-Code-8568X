@@ -2,15 +2,6 @@
 #include "vex.h"
  
 using namespace vex;
-typedef struct kPID{
- 
- double kP;
- 
- double kI;
- 
- double kD;
- 
-} kPID;
  
 polarCoord rectToPol(double x, double y);
  
