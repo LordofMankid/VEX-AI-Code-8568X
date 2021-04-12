@@ -69,8 +69,9 @@ class odometry{
   //odometry(encoder trackingLeft, encoder trackingRight, encoder trackingX);
   
   void resetPosition();
-  
+
   void updatePosition();
+  
 
   double modulo(double a, double b);
   
