@@ -43,7 +43,12 @@ double calculate::PID(double targetPosition, double encoderValue, kPID kPID){
  return voltage;
  
 }
- 
+
+/*
+input: individual rectangular (x,y) coordinates
+converts the coordinates from rectangular to polar
+output: polar coordinate structure
+*/
 polarCoord calculate::rectToPol(double x, double y)
 {
  polarCoord polar;
@@ -55,12 +60,22 @@ polarCoord calculate::rectToPol(double x, double y)
  polar.angle = theta;
  return polar;
 }
- 
+
+/*
+input: rectangular coordinate structure
+converts from rectangular to polar
+output: polar coordinate structure
+*/
 polarCoord calculate::rectToPol(rectCoord rect)
 {
  return rectToPol(rect.x, rect.y);
 }
- 
+
+/*
+input: individual polar coordinates (r,Θ)
+converts the polar coordinates to rectangular
+output: rectangular coordinate structure
+*/
 rectCoord calculate::polToRect(double radius, double theta)
 {
  rectCoord rect;
@@ -73,18 +88,28 @@ rectCoord calculate::polToRect(double radius, double theta)
  return rect;
 }
 
+/*
+input: polar coordinate structure
+converts from polar to coordinate
+output: rectangular coordinate structure
+*/
 rectCoord calculate::polToRect(polarCoord polar)
 {
   return polToRect(polar.radius, polar.angle);
 }
- 
+
+/*
+input: individual rectangular coordinates (x,y)
+calculates the rectangular distance between them
+output: the distance (double)
+*/
 double calculate::calcDistance(double x, double y)
 {
  double distance;
  distance = sqrt(pow(x,2)+pow(y,2));
  return distance;
 }
- 
+
 double calculate::calcDistance(rectCoord rect)
 {
  return calcDistance(rect.x, rect.y);
