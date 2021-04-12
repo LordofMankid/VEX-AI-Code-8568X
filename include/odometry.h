@@ -10,22 +10,6 @@ extern brain Brain;
 extern const double TR_TICK_INCH;
 extern const double TR_INCH_TICK;
 
-typedef struct position{
-  double xPosition;
-  double yPosition;
-  double angle;
-} position;
-
-typedef struct polarCoord{
-  double radius;
-  double angle;
-} polarCoord;
-
-typedef struct rectCoord{
-  double x;
-  double y;
-} rectCoord;
-
 
 class odometry{
   private:

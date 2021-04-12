@@ -23,6 +23,37 @@
 #include "odometry.h"
 #include "intake.h"
 
+
+#ifndef STRUCTURES
+
+typedef struct kPID{
+
+  double kP;
+
+  double kI;
+
+  double kD;
+
+} kPID;
+
+typedef struct position{
+  double xPosition;
+  double yPosition;
+  double angle;
+} position;
+
+typedef struct polarCoord{
+  double radius;
+  double angle;
+} polarCoord;
+
+typedef struct rectCoord{
+  double x;
+  double y;
+} rectCoord;
+
+#define STRUCTURES
+#endif
 #define waitUntil(condition)                                                   \
   do {                                                                         \
     wait(5, msec);                                                             \
