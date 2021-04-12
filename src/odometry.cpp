@@ -88,8 +88,8 @@ const double TR_INCH_TICK = 2.5*PI/TICKS_TRACKING_REV;
 
   }
 
-  double modulo(double a, double b);
-  
+  double modulo(double a, double b); 
+    
   double odometry::getYposition(){
 
     return currPosition.yPosition;
