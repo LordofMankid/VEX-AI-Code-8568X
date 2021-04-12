@@ -17,6 +17,7 @@ Declares a four-motor chassis class.
 class chassis
 {
   private:
+  calculate Calc;
   motor FrontLeft = motor(PORT1);
   motor FrontRight = motor(PORT2);
   motor BackLeft = motor(PORT3);

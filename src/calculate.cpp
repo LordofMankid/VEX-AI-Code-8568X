@@ -44,7 +44,7 @@ double calculate::PID(double targetPosition, double encoderValue, kPID kPID){
  
 }
  
-polarCoord rectToPol(double x, double y)
+polarCoord calculate::rectToPol(double x, double y)
 {
  polarCoord polar;
  double radius;
@@ -56,12 +56,12 @@ polarCoord rectToPol(double x, double y)
  return polar;
 }
  
-polarCoord rectToPol(rectCoord rect)
+polarCoord calculate::rectToPol(rectCoord rect)
 {
  return rectToPol(rect.x, rect.y);
 }
  
-rectCoord polToRect(double radius, double theta)
+rectCoord calculate::polToRect(double radius, double theta)
 {
  rectCoord rect;
  double x;
@@ -73,24 +73,24 @@ rectCoord polToRect(double radius, double theta)
  return rect;
 }
 
-rectCoord polToRect(polarCoord polar)
+rectCoord calculate::polToRect(polarCoord polar)
 {
   return polToRect(polar.radius, polar.angle);
 }
  
-double calcDistance(double x, double y)
+double calculate::calcDistance(double x, double y)
 {
  double distance;
  distance = sqrt(pow(x,2)+pow(y,2));
  return distance;
 }
  
-double calcDistance(rectCoord rect)
+double calculate::calcDistance(rectCoord rect)
 {
  return calcDistance(rect.x, rect.y);
 }
 
-double calcDistance(polarCoord polar)
+double calculate::calcDistance(polarCoord polar)
 {
  rectCoord rect;
  rect = polToRect(polar);
