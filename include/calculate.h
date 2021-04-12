@@ -13,6 +13,13 @@ typedef struct kPID{
 
 } kPID;
 
+polarCoord rectToPol(double x, double y);
+
+rectCoord polToRect(double radius, double theta);
+
+double calcDistance(rectCoord recCoords);
+
+double calcDistance(double x, double y);
 
 class calculate{
   private:

@@ -44,3 +44,39 @@ double calculate::PID(double targetPosition, double encoderValue, kPID kPID){
   return voltage;
 
 }
+
+polarCoord rectToPol(double x, double y)
+{
+  polarCoord polar;
+  double radius;
+  radius = sqrt(pow(x,2)+ pow(y,2));
+  polar.radius = radius;
+  double theta;
+  theta = atan(y / x);
+  polar.angle = theta;
+  return polar;
+}
+
+rectCoord polToRec(double radius, double theta)
+{
+  rectCoord rect;
+  double x;
+  x = radius * cos(theta);
+  rect.x = x;
+  double y;
+  y = radius * sin(theta);
+  rect.y = y;
+  return rect;
+}
+
+double calcDistance(double x, double y)
+{
+  double distance;
+  distance = sqrt(pow(x,2)+pow(y,2));
+  return distance;
+}
+
+double calcDistance(rectCoord recCoords)
+{
+  return calcDistance(recCoords.x, recCoords.y);
+}
