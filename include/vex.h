@@ -53,7 +53,6 @@ typedef struct rectCoord{
 #define STRUCTURES
 #endif 
 
->>>>>>> Stashed changes
 
 #define waitUntil(condition)                                                   \
   do {                                                                         \

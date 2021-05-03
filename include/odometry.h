@@ -1,5 +1,5 @@
 #pragma once
-#include "vex.h"
+/*
 #include <vex_triport.h>
 
 using namespace vex;
@@ -84,3 +84,4 @@ class odometry{
 
 };
 
+*/

@@ -1,4 +1,5 @@
 #pragma once
+/*
 #include "vex.h"
 using namespace vex;
 
@@ -13,7 +14,7 @@ Declares a four-motor chassis class.
 
 
 
-*/
+*/ /*
 class chassis
 {
   private:
@@ -61,4 +62,4 @@ class newChassis
   public:
   newChassis(){ };
   
-};
+}; */
