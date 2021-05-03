@@ -17,7 +17,7 @@ Declares a four-motor chassis class.
 class chassis 
 {
   private:
-  calculate Calc;
+  //calculate Calc;
   motor FrontLeft = motor(PORT1);
   motor FrontRight = motor(PORT2);
   motor BackLeft = motor(PORT3);
@@ -27,7 +27,7 @@ class chassis
   int xPowerDrive;
   int rPowerDrive;
 
-  kPID kChassis;
+  //kPID kChassis;
 
   public:
   chassis() {};
@@ -37,7 +37,7 @@ class chassis
   void setHoloDrive(int yPower, int xPower, int rPower);
   void setTankDrive(int yPower, int rPower);
   void setDriveMotors();
-  void move(double target);
+  //void move(double target);
   
  // kPID get_kPID();
 };

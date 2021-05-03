@@ -1,5 +1,5 @@
 #include "vex.h"
- 
+/* 
  
 double calculate::PID(double targetPosition, double encoderValue, kPID kPID){
   int voltage;
@@ -102,7 +102,7 @@ rectCoord calculate::polToRect(polarCoord polar)
 input: individual rectangular coordinates (x,y)
 calculates the rectangular distance between them
 output: the distance (double)
-*/
+*//*
 double calculate::calcDistance(double x, double y)
 {
  double distance;
@@ -142,4 +142,4 @@ double calculate::get_kI()
 double calculate::get_kD()
 {
   return pid_constants.kD;
-}
+}*/
