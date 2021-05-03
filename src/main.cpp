@@ -121,8 +121,24 @@ void autonomousMain(void) {
 
 /*----------------------------------------------------------------------------*/
 
+void holoDrive(int yPower, int xPower, int rPower)
+{  
+  FrontLeft.setVelocity(-yPower + xPower + rPower, velocityUnits::pct);
+  FrontRight.setVelocity(yPower - xPower - rPower, velocityUnits::pct);
+  BackLeft.setVelocity(-yPower - xPower + rPower, velocityUnits::pct);
+  BackRight.setVelocity(yPower + xPower - rPower, velocityUnits::pct);
 
+  FrontLeft.spin(forward);
+  FrontRight.spin(forward);
+  BackLeft.spin(forward);
+  BackRight.spin(forward);
 
+  
+}
+
+int yPowerDrive;
+int xPowerDrive;
+int rPowerDrive;
 
 
 
@@ -168,9 +184,55 @@ int main() {
         // NOTE: This request should only happen in a single task.    
         jetson_comms.request_map();
         
-        xChassis.setDriveMotors();
+//        xChassis.setDriveMotors();
         
-        setDriverSpeed();
+        if (Controller.ButtonA.pressing()) {
+    setIntakeSpeed(100);
+  } else if (Controller.ButtonB.pressing()) {
+    setIntakeSpeed(-100);
+  } else {
+    intakeLeft.stop();
+    intakeRight.stop();
+  }
+  if (Controller.ButtonR2.pressing()) {
+    setTransportSpeed(100);
+  } else if (Controller.ButtonR1.pressing()) {
+    setTransportSpeed(-100);
+  } else {
+    transport.stop();
+  }
+  if (Controller.ButtonL2.pressing()) {
+    setSorterSpeed(100);
+  } else if (Controller.ButtonL1.pressing()) {
+    setSorterSpeed(-100);
+  } else {
+    sorter.stop();
+  }
+
+
+  if(abs(Controller.Axis3.value()) < 5)
+  {
+   yPowerDrive = 0;
+  } else {
+    yPowerDrive = Controller.Axis3.value();
+  }
+  
+  if(abs(Controller.Axis4.value()) < 5)
+  {
+    xPowerDrive = 0;
+  } else {
+     xPowerDrive = Controller.Axis4.value();
+  }
+  
+  if(abs(Controller.Axis1.value()) < 5)
+  {
+    rPowerDrive = 0;
+  } else {
+     rPowerDrive = Controller.Axis1.value();
+  }
+ 
+  holoDrive(yPowerDrive, xPowerDrive, rPowerDrive);
+
 
         colorSort(redSide);
 

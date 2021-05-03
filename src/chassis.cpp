@@ -20,7 +20,7 @@ using namespace vex;
 //int xPowerDrive;
 //int rPowerDrive;
 
-chassis xChassis = chassis(motor(PORT2), motor(PORT3), motor(PORT10), motor(PORT7));
+//chassis xChassis = chassis(motor(PORT2), motor(PORT3), motor(PORT10, reverse), motor(PORT7));
 chassis::chassis(motor FrontLeftMotor, motor FrontRightMotor, motor BackLeftMotor, motor BackRightMotor)
 {
   FrontLeft = FrontLeftMotor;

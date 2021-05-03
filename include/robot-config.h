@@ -11,6 +11,10 @@ extern motor sorter;
 extern motor transport;
 extern optical ColorSorter;
 
+extern motor FrontLeft;
+extern motor FrontRight;
+extern motor BackLeft;
+extern motor BackRight;
 /**
  * Used to initialize code/tasks/devices added using tools in VEXcode Pro.
  *
