@@ -131,6 +131,25 @@ int yPowerDrive;
 int xPowerDrive;
 int rPowerDrive;
 
+void setIntakeSpeed(int pwr) 
+{
+  intakeLeft.setVelocity(pwr, percent);
+  intakeRight.setVelocity(pwr, percent);
+  intakeLeft.spin(forward);
+  intakeRight.spin(forward);
+}
+
+void setSorterSpeed(int pwr)
+{
+  sorter.setVelocity(pwr, percent);
+  sorter.spin(forward);
+}
+
+void setTransportSpeed(int pwr)
+{
+  transport.setVelocity(pwr, percent);
+  transport.spin(forward);
+}
 void setScore(){
   if (Controller.ButtonA.pressing()) {
     setIntakeSpeed(100);
