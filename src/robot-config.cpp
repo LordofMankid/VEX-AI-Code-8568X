@@ -12,8 +12,12 @@ brain Brain;
  */
 
 
+motor FrontLeft = motor(PORT2);
+motor FrontRight = motor(PORT3);
+motor BackLeft = motor(PORT10);
+motor BackRight = motor(PORT7);
 
 void vexcodeInit(void) {
   // Nothing to initialize
-  chassis xChassis;
+//  chassis xChassis;
 }
