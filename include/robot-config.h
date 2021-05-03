@@ -18,6 +18,13 @@ extern motor FrontRight;
 extern motor BackRight;
 extern motor BackLeft;
 
+extern motor intakeLeft;
+extern motor intakeRight;
+extern motor sorter;
+extern motor transport;
+
+
+
 /**
  * Used to initialize code/tasks/devices added using tools in VEXcode Pro.
  *
