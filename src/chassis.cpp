@@ -20,7 +20,7 @@ using namespace vex;
 //int xPowerDrive;
 //int rPowerDrive;
 
-chassis xChassis = chassis(motor(PORT2), motor(PORT3), motor(PORT4), motor(PORT7));
+chassis xChassis = chassis(motor(PORT2), motor(PORT3), motor(PORT4), motor(PORT10));
 chassis::chassis(motor FrontLeftMotor, motor FrontRightMotor, motor BackLeftMotor, motor BackRightMotor)
 {
   FrontLeft = FrontLeftMotor;
@@ -30,9 +30,9 @@ chassis::chassis(motor FrontLeftMotor, motor FrontRightMotor, motor BackLeftMoto
 }
 void chassis::setHoloDrive(int yPower, int xPower, int rPower)
 {  
-  FrontLeft.setVelocity(yPower + xPower + rPower, velocityUnits::pct);
+  FrontLeft.setVelocity(-yPower + xPower + rPower, velocityUnits::pct);
   FrontRight.setVelocity(yPower - xPower - rPower, velocityUnits::pct);
-  BackLeft.setVelocity(yPower - xPower + rPower, velocityUnits::pct);
+  BackLeft.setVelocity(-yPower - xPower + rPower, velocityUnits::pct);
   BackRight.setVelocity(yPower + xPower - rPower, velocityUnits::pct);
 
   FrontLeft.spin(forward);
