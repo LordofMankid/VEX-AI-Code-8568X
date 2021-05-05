@@ -13,9 +13,9 @@ brain Brain;
 
 
 motor FrontLeft = motor(PORT2);
-motor FrontRight = motor(PORT3);
+motor FrontRight = motor(PORT3, true);
 motor BackLeft = motor(PORT10);
-motor BackRight = motor(PORT7);
+motor BackRight = motor(PORT7, true);
 
 motor intakeLeft = motor(PORT5, ratio18_1, false);
 motor intakeRight = motor(PORT6, ratio18_1, true);

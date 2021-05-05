@@ -114,9 +114,9 @@ void autonomousMain(void) {
 
 void holoDrive(int yPower, int xPower, int rPower)
 {  
-  FrontLeft.setVelocity(-yPower + xPower + rPower, velocityUnits::pct);
+  FrontLeft.setVelocity(yPower + xPower + rPower, velocityUnits::pct);
   FrontRight.setVelocity(yPower - xPower - rPower, velocityUnits::pct);
-  BackLeft.setVelocity(-yPower - xPower + rPower, velocityUnits::pct);
+  BackLeft.setVelocity(yPower - xPower + rPower, velocityUnits::pct);
   BackRight.setVelocity(yPower + xPower - rPower, velocityUnits::pct);
 
   FrontLeft.spin(forward);
@@ -176,6 +176,22 @@ void setScore(){
 
 
 }
+
+void setDriveBrake(){
+  FrontLeft.setBrake(brakeType::brake);
+  FrontRight.setBrake(brakeType::brake);
+  BackLeft.setBrake(brakeType::brake);
+  BackRight.setBrake(brakeType::brake);
+
+}
+
+void setScoreBrake(){
+  intakeLeft.setBrake(brakeType::brake);
+  intakeRight.setBrake(brakeType::brake);
+  sorter.setBrake(brakeType::brake);
+  transport.setBrake(brakeType::brake);
+
+}
 void setDrive(){
 
   if(abs(Controller.Axis3.value()) < 5)
@@ -225,7 +241,7 @@ int main() {
     // when using VEXcode.
     //
     //FILE *fp = fopen("/dev/serial2","wb");
-
+    setDriveBrake();
     while(1) {
         // get last map data
         jetson_comms.get_data( &local_map );
@@ -238,7 +254,8 @@ int main() {
         // request new data    
         // NOTE: This request should only happen in a single task.    
         jetson_comms.request_map();
-
+        setDrive();
+        setScore();
         // Allow other tasks to run
         this_thread::sleep_for(loop_time);
         
