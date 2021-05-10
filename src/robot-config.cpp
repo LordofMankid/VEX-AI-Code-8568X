@@ -11,15 +11,14 @@ brain Brain;
  * This should be called at the start of your int main function.
  */
 
-/*
-motor FrontLeft = motor(PORT2);
-motor FrontRight = motor(PORT3, true);
-motor BackLeft = motor(PORT10);
-motor BackRight = motor(PORT7, true);*/
 motor intakeLeft = motor(PORT5, ratio18_1, false);
 motor intakeRight = motor(PORT6, ratio18_1, true);
 motor sorter = motor(PORT8, ratio18_1, true);
 motor transport = motor(PORT9, ratio18_1, false);
+
+optical ColorSorter = optical(PORT14);
+
+
 controller Controller;
 
 void vexcodeInit(void) {

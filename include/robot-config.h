@@ -2,27 +2,17 @@ using namespace vex;
 
 extern brain Brain;
 
-extern motor topLeftMotor;
-extern motor botLeftMotor;
-extern motor topRightMotor;
-extern motor botRightMotor;
 extern motor intakeLeft;
 extern motor intakeRight;
 
 extern controller Controller;
-extern motor frontRightMotor;
-extern motor frontLeftMotor;
-extern motor backRightMotor;
-extern motor backLeftMotor;
-extern motor FrontLeft;
-extern motor FrontRight;
-extern motor BackRight;
-extern motor BackLeft;
 
 extern motor intakeLeft;
 extern motor intakeRight;
 extern motor sorter;
 extern motor transport;
+
+extern optical ColorSorter;
 
 
 

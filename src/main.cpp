@@ -107,21 +107,6 @@ void autonomousMain(void) {
 //New Comment because the first one is gone(lol) :)
 /*----------------------------------------------------------------------------*/
 
-void holoDrive(int yPower, int xPower, int rPower)
-{  
-  FrontLeft.setVelocity(yPower + xPower + rPower, velocityUnits::pct);
-  FrontRight.setVelocity(yPower - xPower - rPower, velocityUnits::pct);
-  BackLeft.setVelocity(yPower - xPower + rPower, velocityUnits::pct);
-  BackRight.setVelocity(yPower + xPower - rPower, velocityUnits::pct);
-
-  FrontLeft.spin(forward);
-  FrontRight.spin(forward);
-  BackLeft.spin(forward);
-  BackRight.spin(forward);
-
-  
-}
-
 
 
 chassis xDrive = chassis(motor(PORT2), motor(PORT3, true), motor(PORT10), motor(PORT7, true));
