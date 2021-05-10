@@ -47,7 +47,7 @@
      rPowerDrive = Controller.Axis1.value();
   }
  
-  setHoloDrive(yPowerDrive, xPowerDrive, rPowerDrive);
+  setTankDrive(yPowerDrive, rPowerDrive);
 
   }
   void move(double target);
