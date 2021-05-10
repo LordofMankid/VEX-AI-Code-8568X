@@ -1,9 +1,9 @@
 #pragma once
-//#include "vex.h"
+#include "vex.h"
 
 using namespace vex;
  
-/*
+
 class calculate{
   private:
   double integral;
@@ -17,4 +17,4 @@ class calculate{
   double findDistance(rectCoord initPosition, rectCoord finalPosition);
   
   //double PID(rectCoord targetPosition, position currPosition);
-};*/
+};

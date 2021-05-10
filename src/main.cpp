@@ -104,11 +104,6 @@ void autonomousMain(void) {
 }
 
 
-
-
-
-
-
 //New Comment because the first one is gone(lol) :)
 /*----------------------------------------------------------------------------*/
 
@@ -127,9 +122,6 @@ void holoDrive(int yPower, int xPower, int rPower)
   
 }
 
-int yPowerDrive;
-int xPowerDrive;
-int rPowerDrive;
 
 void setIntakeSpeed(int pwr) 
 {
@@ -177,13 +169,6 @@ void setScore(){
 
 }
 
-void setDriveBrake(){
-  FrontLeft.setBrake(brakeType::brake);
-  FrontRight.setBrake(brakeType::brake);
-  BackLeft.setBrake(brakeType::brake);
-  BackRight.setBrake(brakeType::brake);
-
-}
 
 void setScoreBrake(){
   intakeLeft.setBrake(brakeType::brake);
@@ -192,31 +177,9 @@ void setScoreBrake(){
   transport.setBrake(brakeType::brake);
 
 }
-void setDrive(){
 
-  if(abs(Controller.Axis3.value()) < 5)
-  {
-   yPowerDrive = 0;
-  } else {
-    yPowerDrive = Controller.Axis3.value();
-  }
-  
-  if(abs(Controller.Axis4.value()) < 5)
-  {
-    xPowerDrive = 0;
-  } else {
-     xPowerDrive = Controller.Axis4.value();
-  }
-  
-  if(abs(Controller.Axis1.value()) < 5)
-  {
-    rPowerDrive = 0;
-  } else {
-     rPowerDrive = Controller.Axis1.value();
-  }
- 
-  holoDrive(yPowerDrive, xPowerDrive, rPowerDrive);
-}
+
+chassis xDrive = chassis(motor(PORT2), motor(PORT3, true), motor(PORT10), motor(PORT7, true));
 
 int main() {
     // Initializing Robot Configuration. DO NOT REMOVE!
@@ -241,7 +204,8 @@ int main() {
     // when using VEXcode.
     //
     //FILE *fp = fopen("/dev/serial2","wb");
-    setDriveBrake();
+    xDrive.setChassisBrake();
+    
     while(1) {
         // get last map data
         jetson_comms.get_data( &local_map );
@@ -254,8 +218,9 @@ int main() {
         // request new data    
         // NOTE: This request should only happen in a single task.    
         jetson_comms.request_map();
-        setDrive();
-        setScore();
+        xDrive.setDriveMotors();
+        //setDrive();
+        //setScore();
         // Allow other tasks to run
         this_thread::sleep_for(loop_time);
         

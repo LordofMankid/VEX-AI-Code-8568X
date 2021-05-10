@@ -1,6 +1,5 @@
 #pragma once
-/*
-#include <vex_triport.h>
+#include "vex.h"
 
 using namespace vex;
 #define TICKS_TRACKING_REV 360.0
@@ -84,4 +83,3 @@ class odometry{
 
 };
 
-*/

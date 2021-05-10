@@ -1,5 +1,5 @@
 #pragma once
-/*
+
 #include "vex.h"
 using namespace vex;
 
@@ -14,7 +14,7 @@ Declares a four-motor chassis class.
 
 
 
-*/ /*
+*/ 
 class chassis
 {
   private:
@@ -38,13 +38,14 @@ class chassis
   void setChassisMotors(motor FrontLeftMotor, motor FrontRightMotor, motor BackLeftMotor, motor BackRightMotor);
   void setHoloDrive(int yPower, int xPower, int rPower);
   void setTankDrive(int yPower, int rPower);
+  void setChassisBrake();
   void setDriveMotors();
   void move(double target);
   void setPID(double kP, double kI, double kD);
   double get_kP();
   double get_kI();
   double get_kD();
- // kPID get_kPID();
+  kPID get_kPID();
 };
 
 
@@ -61,5 +62,4 @@ class newChassis
   
   public:
   newChassis(){ };
-  
-}; */
+  }; 
