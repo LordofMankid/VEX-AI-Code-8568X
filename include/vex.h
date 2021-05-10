@@ -21,7 +21,7 @@
 #include "chassis.h"
 #include "odometry.h"
 #include "calculate.h"
-
+#include "intake.h"
 
 
 #ifndef STRUCTURES
