@@ -6,6 +6,8 @@ double calculate::findDistance(rectCoord initPosition, rectCoord finalPosition){
   dist = sqrt(pow(finalPosition.x - initPosition.x, 2) + pow(finalPosition.y - initPosition.y, 2));
   return dist;
 }
+
+
 double calculate::PID(double targetPosition, double encoderValue, kPID kPID){
   int force;
   error = targetPosition - encoderValue;
@@ -29,10 +31,40 @@ double calculate::PID(double targetPosition, double encoderValue, kPID kPID){
 
   return force;
  }
- double calculate::findDistance(rectCoord initPosition, rectCoord finalPosition){
-   int force;
-    error = findDistance(initPosition, finalPosition);
-  
 
- }
- 
+rectCoord calculate::vectorSummation(rectCoord v1, rectCoord v2){
+  rectCoord newVector;
+  newVector.y = v1.y + v2.y;
+  newVector.x = v1.x + v2.x;
+
+  return newVector;
+}
+rectCoord calculate::vectorSummation(rectCoord v1, position v2){
+  rectCoord newVector;
+  newVector.y = v1.y + v2.yPosition;
+  newVector.x = v1.x + v2.xPosition;
+
+  return newVector;
+}
+int calculate::compareValues(double a, double b){
+  return (a < b ? 1:-1);
+}
+
+double modulate(double a, double b) {
+  while (a>b) {
+    a-=b;
+  }
+  return a;
+}
+
+double radianModulate(double theta){
+   theta += PI;
+  while(theta < 0) {
+    theta +=2*PI;
+  }
+  theta = modulate(theta, 2*PI);
+  theta -= PI;
+
+  return theta;
+}
+

@@ -11,3 +11,7 @@ void setTransportSpeed(int pwr);
 void colorSort(bool redSide);
 
 void score(bool redSide);
+
+void setScore();
+
+void setScoreBrake();

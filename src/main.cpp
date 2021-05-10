@@ -135,7 +135,7 @@ int main() {
     //
     //FILE *fp = fopen("/dev/serial2","wb");
     xDrive.setChassisBrake();
-    
+    setScoreBrake();
     while(1) {
         // get last map data
         jetson_comms.get_data( &local_map );
@@ -149,8 +149,9 @@ int main() {
         // NOTE: This request should only happen in a single task.    
         jetson_comms.request_map();
         xDrive.setDriveMotors();
+        
         //setDrive();
-        //setScore();
+        setScore();
         // Allow other tasks to run
         this_thread::sleep_for(loop_time);
         

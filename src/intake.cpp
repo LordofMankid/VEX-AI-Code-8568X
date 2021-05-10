@@ -10,8 +10,10 @@ void setIntakeSpeed(int pwr)
 
 void setSorterSpeed(int pwr)
 {
-  sorter.setVelocity(pwr, percent);
-  sorter.spin(forward);
+  sorterBot.setVelocity(pwr, percent);
+  sorterTop.setVelocity(pwr, percent);
+  sorterBot.spin(forward);
+  sorterTop.spin(forward);
 }
 
 void setTransportSpeed(int pwr)
@@ -40,7 +42,8 @@ void setScore(){
   } else if (Controller.ButtonL1.pressing()) {
     setSorterSpeed(-100);
   } else {
-    sorter.stop();
+    sorterTop.stop();
+    sorterBot.stop();
   }
 
 
@@ -60,7 +63,8 @@ void colorSort(bool redSide)
   {
     setSorterSpeed(-100 * reverse);
   } else {
-    sorter.stop();
+    sorterTop.stop();
+    sorterBot.stop();
   }
 }
 
@@ -81,7 +85,8 @@ void score(bool redSide)
 void setScoreBrake(){
   intakeLeft.setBrake(brakeType::brake);
   intakeRight.setBrake(brakeType::brake);
-  sorter.setBrake(brakeType::brake);
+  sorterTop.setBrake(brakeType::brake);
+  sorterBot.setBrake(brakeType::brake);
   transport.setBrake(brakeType::brake);
 
 }

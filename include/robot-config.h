@@ -9,7 +9,8 @@ extern controller Controller;
 
 extern motor intakeLeft;
 extern motor intakeRight;
-extern motor sorter;
+extern motor sorterTop;
+extern motor sorterBot;
 extern motor transport;
 
 extern optical ColorSorter;
