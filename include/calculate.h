@@ -12,8 +12,10 @@ class calculate{
   int integralMax = 20;
   double prevError;
 
+
   public:
   double PID(double targetPosition, double encoderValue, kPID kPID);
+  double PID(double targ)
   double findDistance(rectCoord initPosition, rectCoord finalPosition);
   
   //double PID(rectCoord targetPosition, position currPosition);
