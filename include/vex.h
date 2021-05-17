@@ -53,6 +53,11 @@ typedef struct rectCoord{
 #define STRUCTURES
 #endif 
 
+#ifndef COCK 
+#define TICKS_TRACKING_REV 360.0
+
+#define COCK
+#endif
 
 #define waitUntil(condition)                                                   \
   do {                                                                         \

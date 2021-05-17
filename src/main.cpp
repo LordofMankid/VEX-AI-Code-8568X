@@ -110,7 +110,7 @@ void autonomousMain(void) {
 
 
 chassis xDrive = chassis(motor(PORT2), motor(PORT3, true), motor(PORT10), motor(PORT7, true));
-
+task odometry();
 int main() {
     // Initializing Robot Configuration. DO NOT REMOVE!
     vexcodeInit();

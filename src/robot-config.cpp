@@ -13,9 +13,9 @@ brain Brain;
 
 motor intakeLeft = motor(PORT5, ratio18_1, false);
 motor intakeRight = motor(PORT6, ratio18_1, true);
-motor sorterTop = motor(PORT8, ratio6_1, true);
-motor sorterBot = motor(PORT1, ratio6_1, false);
-motor transport = motor(PORT9, ratio6_1, false);
+motor sorterBot = motor(PORT8, ratio6_1, false);
+motor sorterTop = motor(PORT20, ratio6_1, true);
+motor transport = motor(PORT9, ratio6_1, true);
 
 optical ColorSorter = optical(PORT14);
 

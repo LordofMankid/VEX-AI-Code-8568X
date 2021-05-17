@@ -30,20 +30,35 @@ void setScore(){
     intakeLeft.stop();
     intakeRight.stop();
   }
-  if (Controller.ButtonR2.pressing()) {
+  if (Controller.ButtonX.pressing()) {
     setTransportSpeed(100);
   } else if (Controller.ButtonR1.pressing()) {
     setTransportSpeed(-100);
   } else {
     transport.stop();
   }
-  if (Controller.ButtonL2.pressing()) {
+  if (Controller.ButtonY.pressing()) {
     setSorterSpeed(100);
   } else if (Controller.ButtonL1.pressing()) {
     setSorterSpeed(-100);
   } else {
     sorterTop.stop();
     sorterBot.stop();
+  }
+  if (Controller.ButtonL2.pressing()) {
+    setSorterSpeed(100);
+    setIntakeSpeed(100);
+    setTransportSpeed(100);
+  } else if (Controller.ButtonR2.pressing()){
+    setSorterSpeed(-100);
+    setIntakeSpeed(-100);
+    setTransportSpeed(-100);
+  } else {
+    sorterTop.stop();
+    sorterBot.stop();
+    transport.stop();
+    intakeLeft.stop();
+    intakeRight.stop();
   }
 
 
